@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منتجاتنا | عيادة العلاج الطبيعي</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts: Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <style>
+        /* Booking CTA Section - Exact match to about.html */
+        .cta-booking {
+            background-color: #404040;
+            background-image: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7));
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .booking-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .booking-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .booking-text {
+            text-align: right;
+            color: white;
+        }
+
+        .booking-text h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .booking-text p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .call-btn {
+            background-color: white;
+            color: #1D3557;
+            border-radius: 30px;
+            padding: 12px 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .call-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border-radius: 30px;
+            padding: 12px 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #1DA856;
+        }
+
+        @media (max-width: 768px) {
+            .booking-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .booking-text {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="main-header">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="عيادة العلاج الطبيعي" class="logo-image">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                    <li><a href="products.html" class="active">منتجاتنا</a></li>
+                    <li><a href="favorite.html">المفضلة</a></li>
+                    <li><a href="contact.html">تواصل معنا</a></li>
+                    <li class="cart-icon desktop-cart">
+                        <a href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                    <li class="auth-icon desktop-auth">
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                        </a>
+                    </li>
+                    <li class="contact-icon desktop-contact">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-options">
+                            <a href="tel:0111234567" class="call-option">اتصل الآن</a>
+                            <a href="https://wa.me/0111234567" class="whatsapp-option" target="_blank">واتساب</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-controls">
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div class="auth-icon">
+                    <a href="profile.html">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                    <div class="contact-options">
+                        <a href="tel:0111234567" class="call-option">اتصل الآن</a>
+                        <a href="https://wa.me/0111234567" class="whatsapp-option" target="_blank">واتساب</a>
+                    </div>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle Mobile Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <ul class="mobile-menu">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="about.html">من نحن</a></li>
+            <li><a href="products.html" class="active">منتجاتنا</a></li>
+            <li><a href="favorite.html">المفضلة</a></li>
+            <li><a href="contact.html">تواصل معنا</a></li>
+            <li><a href="profile.html">الملف الشخصي</a></li>
+        </ul>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="products-hero">
+            <div class="container">
+                <h1>منتجاتنا</h1>
+                <p>اكتشف مجموعتنا المميزة من أجهزة ومنتجات العلاج الطبيعي</p>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <div class="container">
+                <h2>فئات المنتجات</h2>
+                <div class="categories-container">
+                    <div class="category-card" data-category="supports">
+                        <div class="category-icon"><i class="fas fa-user-plus"></i></div>
+                        <h3>دعامات ومشدات طبيه</h3>
+                    </div>
+                    <div class="category-card" data-category="medical-devices">
+                        <div class="category-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3>اجهزه طبيه بيتيه</h3>
+                    </div>
+                    <div class="category-card" data-category="massage">
+                        <div class="category-icon"><i class="fas fa-hands"></i></div>
+                        <h3>أجهزة مساج</h3>
+                    </div>
+                    <div class="category-card" data-category="treadmills">
+                        <div class="category-icon"><i class="fas fa-running"></i></div>
+                        <h3>أجهزة ركض ورياضه</h3>
+                    </div>
+                    <div class="category-card" data-category="pillows">
+                        <div class="category-icon"><i class="fas fa-bed"></i></div>
+                        <h3>وسائد طبيه</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Carousel Section -->
+        <section class="banner-carousel">
+            <div class="container">
+                <div class="banner-container">
+                    <!-- Banner/Ad 1 -->
+                    <div class="banner-slide active" data-slide-id="1">
+                        <div class="featured-content">
+                            <h2>عرض خاص</h2>
+                            <h3>مشد الظهر Lumbamed</h3>
+                            <p>مشد للعامود الفقري السفلي، يساعد في ثبات الفقرات وتخفيف الضغط عنها</p>
+                            <div class="featured-price">
+                                <span class="old-price">650 ₪</span>
+                                <span class="new-price">550 ₪</span>
+                            </div>
+                            <a href="product-detail.html?id=20" class="btn primary-btn">اطلب الآن وخصم 15%</a>
+                        </div>
+                        <div class="featured-image">
+                            <img src="assets/images/101/Lumbamed/1.png" alt="مشد الظهر Lumbamed">
+                        </div>
+                    </div>
+                    
+                    <!-- Banner/Ad 2 -->
+                    <div class="banner-slide" data-slide-id="2">
+                        <div class="featured-content">
+                            <h2>خصم 25%</h2>
+                            <h3>Genumedi مشد الركبه</h3>
+                            <p>مشد مخصص لمشاكل صابونة الركبه، يساعد في تثبيت المفصل وتخفيف الآلام</p>
+                            <div class="featured-price">
+                                <span class="old-price">350 ₪</span>
+                                <span class="new-price">300 ₪</span>
+                            </div>
+                            <a href="product-detail.html?id=16" class="btn primary-btn">اطلب الآن</a>
+                        </div>
+                        <div class="featured-image">
+                            <img src="assets/images/101/genumedi/1.png" alt="Genumedi مشد الركبه">
+                        </div>
+                    </div>
+                    
+                    <!-- Banner/Ad 3 -->
+                    <div class="banner-slide" data-slide-id="3">
+                        <div class="featured-content">
+                            <h2>وصل حديثاً</h2>
+                            <h3>Airsport مشد الكاحل</h3>
+                            <p>مشد مخصص للكاحل، مناسب للحركة والرياضة، يعمل على تثبيت الكاحل مع راحة قصوى</p>
+                            <div class="featured-price">
+                                <span class="old-price">390 ₪</span>
+                                <span class="new-price">350 ₪</span>
+                            </div>
+                            <a href="product-detail.html?id=25" class="btn primary-btn">اطلب الآن</a>
+                        </div>
+                        <div class="featured-image">
+                            <img src="assets/images/new product/airsport/1.png" alt="Airsport مشد الكاحل">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Banner Navigation -->
+                <div class="banner-navigation">
+                    <button class="banner-prev" aria-label="السابق"><i class="fas fa-chevron-right"></i></button>
+                    <div class="banner-dots">
+                        <span class="banner-dot active" data-slide="1"></span>
+                        <span class="banner-dot" data-slide="2"></span>
+                        <span class="banner-dot" data-slide="3"></span>
+                    </div>
+                    <button class="banner-next" aria-label="التالي"><i class="fas fa-chevron-left"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <div class="container">
+                <div class="products-header">
+                    <h2>منتجاتنا المميزة</h2>
+                    <div class="filters">
+                        <select id="category-filter">
+                            <option value="all">جميع الفئات</option>
+                            <option value="supports">دعامات ومشدات طبيه</option>
+                            <option value="medical-devices">اجهزه طبيه بيتيه</option>
+                            <option value="massage">أجهزة مساج</option>
+                            <option value="treadmills">أجهزة ركض ورياضه</option>
+                            <option value="pillows">وسائد طبيه</option>
+                        </select>
+                        <select id="sort-filter">
+                            <option value="popular">الأكثر شعبية</option>
+                            <option value="price-low">السعر: من الأقل للأعلى</option>
+                            <option value="price-high">السعر: من الأعلى للأقل</option>
+                            <option value="newest">الأحدث</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="products-grid" id="products-container"></div>
+                <div class="pagination">
+                    <button id="prev-page" disabled><i class="fas fa-chevron-right"></i> السابق</button>
+                    <div class="page-numbers">
+                        <span class="current-page">1</span> من <span class="total-pages">5</span>
+                    </div>
+                    <button id="next-page">التالي <i class="fas fa-chevron-left"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h2>ماذا يقول عملاؤنا</h2>
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="assets/images/nobg me.png" alt="صورة العميل">
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"مشد الظهر Lumbamed ممتاز جداً، خفف آلام أسفل الظهر بشكل كبير. سهل الارتداء ومريح للاستخدام اليومي."</p>
+                        <p class="customer-name">أحمد محمد</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="assets/images/nobg me.png" alt="صورة العميل">
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"كنت أعاني من التواء متكرر في الكاحل، لكن مشد Air Ankle ساعدني كثيراً في تثبيت المفصل وتمكنت من العودة للرياضة."</p>
+                        <p class="customer-name">سارة عبدالله</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="assets/images/nobg me.png" alt="صورة العميل">
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"جودة المنتجات ممتازة وخدمة العملاء رائعة. استفدت كثيراً من نصائحهم في اختيار المشد المناسب لحالتي."</p>
+                        <p class="customer-name">محمد خالد</p>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button class="prev-testimonial"><i class="fas fa-chevron-right"></i></button>
+                    <button class="next-testimonial"><i class="fas fa-chevron-left"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>
