@@ -406,6 +406,24 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
+  // Enhanced smooth scrolling for treatments section
+  document.querySelectorAll('a[href="#treatments"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault()
+      const treatmentsSection = document.getElementById("treatments")
+      if (treatmentsSection) {
+        // Add offset for header height
+        const headerHeight = document.getElementById("main-header").offsetHeight
+        const treatmentsPosition = treatmentsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight
+
+        window.scrollTo({
+          top: treatmentsPosition,
+          behavior: "smooth",
+        })
+      }
+    })
+  })
+
   // Contact Dropdown - Updated for click functionality
   const contactIcons = document.querySelectorAll(".contact-icon")
   contactIcons.forEach((icon) => {
