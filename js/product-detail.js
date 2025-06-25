@@ -188,6 +188,206 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Spine Supports (back, lumbar)
     {
+      id: 37,
+      name: "عكاز تقليدي",
+      category: "supports",
+      price: 70,
+      oldPrice: null,
+      rating: 4.8,
+      reviewCount: 45,
+      image: "assets/images/eldry/2.png",
+      images: ["assets/images/eldry/2.png",
+        "assets/images/eldry/2.png",
+        "assets/images/eldry/2.png",
+        "assets/images/eldry/2.png",
+        "assets/images/eldry/2.png"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "عكاز تقليدي ، ذو جودة عاليه، خفيفه ومتينه، قابله لتغيير الطول، مناسبه لكبار السن."
+    },
+    {
+      id: 38,
+      name: "مشايه لكبار السن Rollator Walker",
+      category: "treadmills",
+      price: 650,
+      oldPrice: null,
+      rating: 4.7,
+      reviewCount: 39,
+      image: "assets/images/eldry/3.png",
+      images: ["assets/images/eldry/3.png",
+        "assets/images/eldry/3.png",
+        "assets/images/eldry/3.png",
+        "assets/images/eldry/3.png",
+        "assets/images/eldry/3.png"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "مشايه لكبار السن Rollator Walker, مصنوعه من الالومنيوم المتين، خفيفة الوزن وقابله للطي، فرامل يدويه سهلة الاستعمال، تتميز بصندوق للتخزين والجلوس عليه في حالة التعب اثناء المشي، مناسبه للمشي والتسوق خارج البيت."
+    },
+    {
+      id: 39,
+      name: "عكاز ٤ نقاط",
+      category: "supports",
+      price: 120,
+      oldPrice: null,
+      rating: 4.5,
+      reviewCount: 42,
+      image: "assets/images/eldry/5.jpg",
+      images: ["assets/images/eldry/5.jpg",
+        "assets/images/eldry/5.jpg",
+        "assets/images/eldry/5.jpg",
+        "assets/images/eldry/5.jpg",
+        "assets/images/eldry/5.jpg"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "عكاز ٤ نقاط. مصنوعه من الالومنيوم المتين، جودة عاليه، تتميز باربع نقاط للارجل لثبات اثناء المشي، مناسبه بعد العمليات الجراحيه لكبار السن."
+    },
+    {
+      id: 39,
+      name: "عكاكيز canadian crutches",
+      category: "supports",
+      price: 180,
+      oldPrice: null,
+      rating: 4.6,
+      reviewCount: 25,
+      image: "assets/images/eldry/4.jpg",
+      images: ["assets/images/eldry/4.jpg",
+        "assets/images/eldry/4.jpg",
+        "assets/images/eldry/4.jpg",
+        "assets/images/eldry/4.jpg",
+        "assets/images/eldry/4.jpg"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "عكاكيز canadian crutches. مناسبه ما بعد الاصبات، قابله لتغيير الطول، خفيفة الوزن لسهولة الحركه."
+    },
+    {
+      id: 40,
+      name: "عكاكيز axillary crutches",
+      category: "supports",
+      price: 180,
+      oldPrice: null,
+      rating: 4.6,
+      reviewCount: 25,
+      image: "assets/images/eldry/6.jpg",
+      images: ["assets/images/eldry/6.jpg",
+        "assets/images/eldry/6.jpg",
+        "assets/images/eldry/6.jpg",
+        "assets/images/eldry/6.jpg",
+        "assets/images/eldry/6.jpg"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "عكاكيز axillary crutches. عكاكيز مخصصه ما بعد الاصابات، ثبات وسهوله بالحركه، جوده عاليه وخفيفة الوزن."
+    },
+    {
+      id: 41,
+      name: "عكاكيز axillary crutches",
+      category: "supports",
+      price: 180,
+      oldPrice: null,
+      rating: 4.6,
+      reviewCount: 25,
+      image: "assets/images/eldry/5.jpg",
+      images: ["assets/images/eldry/5.jpg",
+        "assets/images/eldry/5.jpg",
+        "assets/images/eldry/5.jpg",
+        "assets/images/eldry/5.jpg",
+        "assets/images/eldry/5.jpg"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "عكاكيز axillary crutches. عكاكيز مخصصه ما بعد الاصابات، ثبات وسهوله بالحركه، جوده عاليه وخفيفة الوزن."
+    },
+    {
+      id: 42,
+      name: "مشايه walker مع اربع عجلات",
+      category: "treadmills",
+      price: 250,
+      oldPrice: null,
+      rating: 4.8,
+      reviewCount: 35,
+      image: "assets/images/eldry/8.png",
+      images: ["assets/images/eldry/8.png",
+        "assets/images/eldry/8.png",
+        "assets/images/eldry/8.png",
+        "assets/images/eldry/8.png",
+        "assets/images/eldry/8.png"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "مشايه walker مع اربع عجلات، مصنوعه من الالومنيوم خفيف الوزن، قابله للطي، مناسبه لكبار السن بعد الاصابات او العمليات الجراحيه."
+    },
+    {
+      id: 43,
+      name: "كرسي حمام",
+      category: "supports",
+      price: 900,
+      oldPrice: null,
+      rating: 4.8,
+      reviewCount: 31,
+      image: "assets/images/eldry/7.jpg",
+      images: ["assets/images/eldry/7.jpg",
+        "assets/images/eldry/7.jpg",
+        "assets/images/eldry/7.jpg",
+        "assets/images/eldry/7.jpg",
+        "assets/images/eldry/7.jpg"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "كرسي حمام، ذو جوده عاليه، مصنوع من الالومنيوم والبلاستك، مخصص لكبار السن لاستعمال المرحاض والاستحمام"
+    },
+    {
+      id: 44,
+      name: "كرسي متحرك",
+      category: "treadmills",
+      price: 1700,
+      oldPrice: null,
+      rating: 4.8,
+      reviewCount: 32,
+      image: "assets/images/eldry/9.png",
+      images: ["assets/images/eldry/9.png",
+        "assets/images/eldry/9.png",
+        "assets/images/eldry/9.png",
+        "assets/images/eldry/9.png",
+        "assets/images/eldry/9.png"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "كرسي متحرك، ذو جوده عاليه، خفيف الوزن، مصنوع من الالومنيوم والقماش، قابل للطي والتخزين."
+    },
+    {
+      id: 45,
+      name: "كرسي متحرك",
+      category: "treadmills",
+      price: 1700,
+      oldPrice: null,
+      rating: 4.8,
+      reviewCount: 32,
+      image: "assets/images/eldry/9.png",
+      images: ["assets/images/eldry/9.png",
+        "assets/images/eldry/9.png",
+        "assets/images/eldry/9.png",
+        "assets/images/eldry/9.png",
+        "assets/images/eldry/9.png"
+      ],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "كرسي متحرك، ذو جوده عاليه، خفيف الوزن، مصنوع من الالومنيوم والقماش، قابل للطي والتخزين."
+    },
+    {
       id: 20,
       name: "مشد الظهر Lumbamed",
       category: "supports",

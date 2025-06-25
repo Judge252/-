@@ -1,113 +1,112 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Products.js loaded") // Debug statement
+  console.log("Products.js loaded"); // Debug statement
 
   // DOM Elements - Declared here to avoid use before declaration
-  const categoryFilter = document.getElementById("category-filter")
+  const categoryFilter = document.getElementById("category-filter");
+  console.log("Category filter:", categoryFilter); // Debug
 
   // Handle URL parameters for category filtering
-  const urlParams = new URLSearchParams(window.location.search)
-  const categoryParam = urlParams.get("category")
+  const urlParams = new URLSearchParams(window.location.search);
+  const categoryParam = urlParams.get("category");
+  let currentCategory = "all"; // Default category
   if (categoryParam && categoryFilter) {
-    categoryFilter.value = categoryParam
-    currentCategory = categoryParam
+    categoryFilter.value = categoryParam;
+    currentCategory = categoryParam;
   }
 
   // Mobile Menu Toggle - Simplified and more direct implementation
-  const menuToggle = document.querySelector(".menu-toggle")
-  const mobileMenu = document.querySelector(".mobile-menu")
+  const menuToggle = document.querySelector(".menu-toggle");
+  const mobileMenu = document.querySelector(".mobile-menu");
 
   if (menuToggle && mobileMenu) {
-    // Log when elements are found
-    console.log("Menu elements found")
-
+    console.log("Menu elements found"); // Debug
     menuToggle.addEventListener("click", (event) => {
-      event.preventDefault()
-      console.log("Menu toggle clicked") // Debug
-      mobileMenu.classList.toggle("show")
-    })
+      event.preventDefault();
+      console.log("Menu toggle clicked"); // Debug
+      mobileMenu.classList.toggle("show");
+    });
   } else {
-    console.log("Menu elements not found") // Debug if elements are missing
+    console.log("Menu elements not found"); // Debug if elements are missing
   }
 
   // Close mobile menu when clicking outside
   document.addEventListener("click", (event) => {
     if (mobileMenu && mobileMenu.classList.contains("show")) {
-      // Only close if click is outside menu and toggle button
       if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
-        mobileMenu.classList.remove("show")
+        mobileMenu.classList.remove("show");
       }
     }
-  })
+  });
 
   // Ensure menu items close the menu when clicked
-  const mobileMenuLinks = document.querySelectorAll(".mobile-menu li a")
+  const mobileMenuLinks = document.querySelectorAll(".mobile-menu li a");
   mobileMenuLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      mobileMenu.classList.remove("show")
-    })
-  })
+      mobileMenu.classList.remove("show");
+    });
+  });
 
   // Sticky Header
   window.addEventListener("scroll", () => {
-    const header = document.getElementById("main-header")
-    if (header) header.classList.toggle("sticky", window.scrollY > 50)
-  })
+    const header = document.getElementById("main-header");
+    if (header) header.classList.toggle("sticky", window.scrollY > 50);
+  });
 
   // Smooth Scrolling
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
-      e.preventDefault()
-      const target = document.querySelector(anchor.getAttribute("href"))
-      if (target) target.scrollIntoView({ behavior: "smooth" })
-    })
-  })
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute("href"));
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    });
+  });
 
   // Cart Sync
-  const cartCountElem = document.querySelectorAll(".cart-count")
-  const cart = JSON.parse(localStorage.getItem("cart")) || []
+  const cartCountElem = document.querySelectorAll(".cart-count");
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
   function updateCartCount() {
     cartCountElem.forEach((elem) => {
-      if (elem) elem.textContent = cart.length
-    })
+      if (elem) elem.textContent = cart.length;
+    });
   }
-  updateCartCount()
+  updateCartCount();
 
   // Contact Dropdown
-  const contactIcon = document.querySelector(".contact-icon")
-  const contactOptions = document.querySelector(".contact-options")
+  const contactIcon = document.querySelector(".contact-icon");
+  const contactOptions = document.querySelector(".contact-options");
   if (contactIcon && contactOptions) {
     contactIcon.addEventListener("click", (e) => {
-      e.stopPropagation()
-      contactOptions.classList.toggle("show")
-    })
+      e.stopPropagation();
+      contactOptions.classList.toggle("show");
+    });
 
     // Close dropdown when clicking outside
     document.addEventListener("click", (e) => {
       if (!contactIcon.contains(e.target) && !contactOptions.contains(e.target)) {
-        contactOptions.classList.remove("show")
+        contactOptions.classList.remove("show");
       }
-    })
+    });
 
     // Prevent dropdown from closing when clicking inside
     contactOptions.addEventListener("click", (e) => {
-      e.stopPropagation()
-    })
+      e.stopPropagation();
+    });
   }
 
   // Sanitize input function for security
   function sanitizeInput(input) {
-    if (!input) return ""
-    return input.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    if (!input) return "";
+    return input.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;");
   }
 
   // Debounce function to limit function calls
   function debounce(func, delay) {
-    let debounceTimer
+    let debounceTimer;
     return function () {
-      const args = arguments
-      clearTimeout(debounceTimer)
-      debounceTimer = setTimeout(() => func.apply(this, args), delay)
-    }
+      const args = arguments;
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => func.apply(this, args), delay);
+    };
   }
 
   // Products Data with Descriptions
@@ -199,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
       isNew: true,
       isBestseller: false,
       description:
-        "مشد مصنوع من قماش عالي الجوده ومريح للارتداء، يعزز ثبات المفصل، مناسب بعد الاصابات، التهاب المفصل والاوتار، يساعد في تخفيف التورم، الالم والالتهاب",
+        "مشد مصنوع من قماش عالي الجوده ومريح للارتداء، يعزز ثبات المفصل، مناسب بعد الاصابات، التهاب المفصل والاoutار، يساعد في تخفيف التورم، الالم والالتهاب",
     },
     {
       id: 24,
@@ -233,7 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
       isBestseller: false,
       description: "علاقه مريحه للاستعمال، مناسبه بعد الاصابات او العمليات الجراحيه",
     },
-
     // Spine Supports (back, lumbar)
     {
       id: 20,
@@ -257,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "assets/images/101/Lumbamed/lumbamed-plus-lumbar-support-foldable-edges-m-96631.jpeg",
         "assets/images/101/Lumbamed/lumbamed-basic-lumbar-supports-finger-loops--m-96628.jpeg",
         "assets/images/101/Lumbamed/lumbamed-basic-back-braces-lumbar-spine-m-83121.jpeg",
-      ],
+16],
       isNew: true,
       isBestseller: true,
       description:
@@ -304,7 +302,6 @@ document.addEventListener("DOMContentLoaded", () => {
       description:
         "مشد ظهر من شركة Donjoy مخصص لدعم العامود الفقري السفلي مع خاصيه التثبيت الثنائي، مناسب بعد الاصبات او لمشاكل العامود الفقري السفلي",
     },
-
     // Lower Body Supports (knee, ankle, foot)
     {
       id: 16,
@@ -428,7 +425,7 @@ document.addEventListener("DOMContentLoaded", () => {
       reviewCount: 60,
       image: "assets/images/new product/medi elastic ankle/1.png",
       images: [
-        "assets/images/new product/medi elastic ankle/1.png",
+        "assets/images/new|F2| product/medi elastic ankle/1.png",
         "assets/images/new product/medi elastic ankle/2.png",
         "assets/images/new product/medi elastic ankle/3.png",
         "assets/images/new product/medi elastic ankle/4.png",
@@ -540,128 +537,262 @@ document.addEventListener("DOMContentLoaded", () => {
       description:
         "جهاز عصري وحديث مع شاشة LCD، يحمل وزن حتى 110 كلغم, يصل لسرعة 16 كم/س، 15 وضعية انحذار مع تحكم كهربائي، 3 سنوات كفاله على المحرك.",
     },
-  ]
+    {
+      id: 37,
+      name: "عكاز تقليدي",
+      category: "supports",
+      price: 70,
+      oldPrice: null,
+      rating: 4.8,
+      reviewCount: 45,
+      image: "assets/images/eldry/2.png",
+      images: ["assets/images/eldry/2.png"],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "عكاز تقليدي ، ذو جودة عاليه، خفيفه ومتينه، قابله لتغيير الطول، مناسبه لكبار السن."
+    },
+    {
+      id: 38,
+      name: "مشايه لكبار السن Rollator Walker",
+      category: "treadmills",
+      price: 650,
+      oldPrice: null,
+      rating: 4.7,
+      reviewCount: 39,
+      image: "assets/images/eldry/3.png",
+      images: ["assets/images/eldry/3.png"],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "مشايه لكبار السن Rollator Walker, مصنوعه من الالومنيوم المتين، خفيفة الوزن وقابله للطي، فرامل يدويه سهلة الاستعمال، تتميز بصندوق للتخزين والجلوس عليه في حالة التعب اثناء المشي، مناسبه للمشي والتسوق خارج البيت."
+    },
+    {
+      id: 39,
+      name: "عكاز ٤ نقاط",
+      category: "supports",
+      price: 120,
+      oldPrice: null,
+      rating: 4.5,
+      reviewCount: 42,
+      image: "assets/images/eldry/5.jpg",
+      images: ["assets/images/eldry/5.jpg"],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "عكاز ٤ نقاط. مصنوعه من الالومنيوم المتين، جودة عاليه، تتميز باربع نقاط للارجل لثبات اثناء المشي، مناسبه بعد العمليات الجراحيه لكبار السن."
+    },
+    {
+      id: 40,
+      name: "عكاكيز canadian crutches",
+      category: "supports",
+      price: 180,
+      oldPrice: null,
+      rating: 4.6,
+      reviewCount: 25,
+      image: "assets/images/eldry/4.jpg",
+      images: ["assets/images/eldry/4.jpg"],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "عكاكيز canadian crutches. مناسبه ما بعد الاصبات، قابله لتغيير الطول، خفيفة الوزن لسهولة الحركه."
+    },
+    {
+      id: 41,
+      name: "عكاكيز axillary crutches",
+      category: "supports",
+      price: 180,
+      oldPrice: null,
+      rating: 4.6,
+      reviewCount: 25,
+      image: "assets/images/eldry/6.jpg",
+      images: ["assets/images/eldry/6.jpg"],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "عكاكيز axillary crutches. عكاكيز مخصصه ما بعد الاصابات، ثبات وسهوله بالحركه، جوده عاليه وخفيفة الوزن."
+    },
+    {
+      id: 42,
+      name: "مشايه walker مع اربع عجلات",
+      category: "treadmills",
+      price: 250,
+      oldPrice: null,
+      rating: 4.8,
+      reviewCount: 35,
+      image: "assets/images/eldry/8.png",
+      images: ["assets/images/eldry/8.png"],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "مشايه walker مع اربع عجلات، مصنوعه من الالومنيوم خفيف الوزن، قابله للطي، مناسبه لكبار السن بعد الاصابات او العمليات الجراحيه."
+    },
+    {
+      id: 43,
+      name: "كرسي حمام",
+      category: "supports",
+      price: 900,
+      oldPrice: null,
+      rating: 4.8,
+      reviewCount: 31,
+      image: "assets/images/eldry/7.jpg",
+      images: ["assets/images/eldry/7.jpg"],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "كرسي حمام، ذو جوده عاليه، مصنوع من الالومنيوم والبلاستك، مخصص لكبار السن لاستعمال المرحاض والاستحمام"
+    },
+    {
+      id: 44,
+      name: "كرسي متحرك",
+      category: "treadmills",
+      price: 1700,
+      oldPrice: null,
+      rating: 4.7,
+      reviewCount: 29,
+      image: "assets/images/eldry/9.png",
+      images: ["assets/images/eldry/9.png"],
+      isNew: true,
+      isBestseller: false,
+      description:
+        "كرسي متحرك، ذو جوده عاليه، خفيف الوزن، مصنوع من الالومنيوم والقماش، قابل للطي والتخزين."
+    },
+  ];
 
   // DOM Elements
-  const productsContainer = document.getElementById("products-container")
-  const sortFilter = document.getElementById("sort-filter")
-  const prevPageBtn = document.getElementById("prev-page")
-  const nextPageBtn = document.getElementById("next-page")
-  const currentPageElem = document.querySelector(".current-page")
-  const totalPagesElem = document.querySelector(".total-pages")
-  const categoryCards = document.querySelectorAll(".category-card")
+  const productsContainer = document.getElementById("products-container");
+  const sortFilter = document.getElementById("sort-filter");
+  const prevPageBtn = document.getElementById("prev-page");
+  const nextPageBtn = document.getElementById("next-page");
+  const currentPageElem = document.querySelector(".current-page");
+  const totalPagesElem = document.querySelector(".total-pages");
 
   // State Variables
-  let currentPage = 1
-  const productsPerPage = 6
-  let filteredProducts = [...productsData]
-  let currentCategory = "all"
-  let currentSort = "popular"
+  let currentPage = 1;
+  const productsPerPage = 6;
+  let filteredProducts = [...productsData];
+  let currentSort = "popular";
 
   // Get favorites from localStorage
-  let favorites = JSON.parse(localStorage.getItem("favorites")) || []
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
   // Initialize
-  filterAndSortProducts()
-  displayProducts()
-  updatePagination()
+  filterAndSortProducts();
+  displayProducts();
+  updatePagination();
 
   // Event Listeners
-  if (categoryFilter)
+  if (categoryFilter) {
     categoryFilter.addEventListener(
       "change",
       debounce(() => {
-        currentCategory = categoryFilter.value
-        // Update URL without page reload
-        const url = new URL(window.location)
+        currentCategory = categoryFilter.value;
+        console.log("Category filter changed:", currentCategory); // Debug
+        const url = new URL(window.location);
         if (currentCategory === "all") {
-          url.searchParams.delete("category")
+          url.searchParams.delete("category");
         } else {
-          url.searchParams.set("category", currentCategory)
+          url.searchParams.set("category", currentCategory);
         }
-        window.history.replaceState({}, "", url)
-        filterAndSortProducts()
-      }, 300),
-    )
+        window.history.replaceState({}, "", url);
+        filterAndSortProducts();
+      }, 300)
+    );
+  }
 
-  if (sortFilter)
+  if (sortFilter) {
     sortFilter.addEventListener(
       "change",
       debounce(() => {
-        currentSort = sortFilter.value
-        filterAndSortProducts()
-      }, 300),
-    )
+        currentSort = sortFilter.value;
+        filterAndSortProducts();
+      }, 300)
+    );
+  }
 
-  if (prevPageBtn)
+  if (prevPageBtn) {
     prevPageBtn.addEventListener("click", () => {
       if (currentPage > 1) {
-        currentPage--
-        displayProducts()
-        updatePagination()
+        currentPage--;
+        displayProducts();
+        updatePagination();
       }
-    })
-
-  if (nextPageBtn)
-    nextPageBtn.addEventListener("click", () => {
-      const totalPages = Math.ceil(filteredProducts.length / productsPerPage)
-      if (currentPage < totalPages) {
-        currentPage++
-        displayProducts()
-        updatePagination()
-      }
-    })
-
-  if (categoryCards) {
-    categoryCards.forEach((card) => {
-      card.addEventListener("click", () => {
-        currentCategory = card.dataset.category
-        if (categoryFilter) categoryFilter.value = currentCategory
-        filterAndSortProducts()
-      })
-    })
+    });
   }
+
+  if (nextPageBtn) {
+    nextPageBtn.addEventListener("click", () => {
+      const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        displayProducts();
+        updatePagination();
+      }
+    });
+  }
+
+  // Category Cards Event Listener (using event delegation)
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest(".category-card");
+    if (card) {
+      currentCategory = card.dataset.category;
+      console.log("Category clicked:", currentCategory); // Debug
+      if (categoryFilter) categoryFilter.value = currentCategory;
+      filterAndSortProducts();
+    }
+  });
 
   // Filter and Sort Products
   function filterAndSortProducts() {
     filteredProducts =
       currentCategory === "all"
         ? [...productsData]
-        : productsData.filter((product) => product.category === currentCategory)
+        : productsData.filter((product) => product.category.toLowerCase() === currentCategory.toLowerCase());
+    console.log("Filtered products count:", filteredProducts.length); // Debug
+    console.log("Filtered products:", filteredProducts); // Debug
+    if (filteredProducts.length === 0 && currentCategory !== "all") {
+      console.warn(`No products found for category: ${currentCategory}, falling back to all`);
+      filteredProducts = [...productsData];
+      currentCategory = "all";
+      if (categoryFilter) categoryFilter.value = "all";
+    }
     switch (currentSort) {
       case "popular":
-        filteredProducts.sort((a, b) => b.rating - a.rating)
-        break
+        filteredProducts.sort((a, b) => b.rating - a.rating);
+        break;
       case "price-low":
-        filteredProducts.sort((a, b) => a.price - b.price)
-        break
+        filteredProducts.sort((a, b) => a.price - b.price);
+        break;
       case "price-high":
-        filteredProducts.sort((a, b) => b.price - a.price)
-        break
+        filteredProducts.sort((a, b) => b.price - a.price);
+        break;
       case "newest":
-        filteredProducts.sort((a, b) => (a.isNew && !b.isNew ? -1 : 0))
-        break
+        filteredProducts.sort((a, b) => (a.isNew && !b.isNew ? -1 : 0));
+        break;
     }
-    currentPage = 1
-    displayProducts()
-    updatePagination()
+    currentPage = 1;
+    displayProducts();
+    updatePagination();
   }
 
   // Display Products
   function displayProducts() {
-    if (!productsContainer) return
-    const startIndex = (currentPage - 1) * productsPerPage
-    const endIndex = startIndex + productsPerPage
-    const currentProducts = filteredProducts.slice(startIndex, endIndex)
+    if (!productsContainer) return;
+    const startIndex = (currentPage - 1) * productsPerPage;
+    const endIndex = startIndex + productsPerPage;
+    const currentProducts = filteredProducts.slice(startIndex, endIndex);
 
-    // Minimize DOM manipulations by building HTML string
-    let productsHTML = ""
+    let productsHTML = "";
 
     currentProducts.forEach((product) => {
-      const badges = `${product.isNew ? '<span class="badge new-badge">جديد</span>' : ""}${product.isBestseller ? '<span class="badge bestseller-badge">الأكثر مبيعاً</span>' : ""}`
+      const badges = `${product.isNew ? '<span class="badge new-badge">جديد</span>' : ""}${
+        product.isBestseller ? '<span class="badge bestseller-badge">الأكثر مبيعاً</span>' : ""
+      }`;
       const priceHTML = product.oldPrice
-        ? `<div class="product-price"><span class="current-price">${sanitizeInput(product.price)} ₪</span><span class="old-price">${sanitizeInput(product.oldPrice)} ₪</span></div>`
-        : `<div class="product-price"><span class="current-price">${sanitizeInput(product.price)} ₪</span></div>`
+        ? `<div class="product-price"><span class="current-price">${sanitizeInput(
+            product.price
+          )} ₪</span><span class="old-price">${sanitizeInput(product.oldPrice)} ₪</span></div>`
+        : `<div class="product-price"><span class="current-price">${sanitizeInput(product.price)} ₪</span></div>`;
 
       productsHTML += `
                 <div class="product-card" data-id="${sanitizeInput(product.id)}">
@@ -669,7 +800,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         <img src="${sanitizeInput(product.image)}" alt="${sanitizeInput(product.name)}">
                         ${badges}
                         <div class="product-actions">
-                            <button class="action-btn favorite-btn" title="إضافة للمفضلة"><i class="${favorites.includes(product.id) ? "fas" : "far"} fa-heart"></i></button>
+                            <button class="action-btn favorite-btn" title="إضافة للمفضلة"><i class="${
+                              favorites.includes(product.id) ? "fas" : "far"
+                            } fa-heart"></i></button>
                             <button class="action-btn add-to-cart" title="إضافة للسلة"><i class="fas fa-shopping-cart"></i></button>
                         </div>
                     </div>
@@ -682,124 +815,121 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${priceHTML}
                     </div>
                 </div>
-            `
-    })
+            `;
+    });
 
     if (currentProducts.length === 0) {
-      productsHTML = '<div class="no-products">لا توجد منتجات متاحة</div>'
+      productsHTML = '<div class="no-products">لا توجد منتجات متاحة</div>';
     }
 
-    productsContainer.innerHTML = productsHTML
+    productsContainer.innerHTML = productsHTML;
 
     // Add event listeners to the new elements
-    const productCards = document.querySelectorAll(".product-card")
-    const favoriteBtns = document.querySelectorAll(".favorite-btn")
-    const addToCartBtns = document.querySelectorAll(".add-to-cart")
+    const productCards = document.querySelectorAll(".product-card");
+    const favoriteBtns = document.querySelectorAll(".favorite-btn");
+    const addToCartBtns = document.querySelectorAll(".add-to-cart");
 
     // Make entire product card clickable
     productCards.forEach((card) => {
       card.addEventListener("click", (e) => {
-        // Only navigate if the click wasn't on an action button
         if (!e.target.closest(".action-btn")) {
-          const productId = card.dataset.id
-          window.location.href = `product-detail.html?id=${productId}`
+          const productId = card.dataset.id;
+          window.location.href = `product-detail.html?id=${productId}`;
         }
-      })
-    })
+      });
+    });
 
     favoriteBtns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        e.stopPropagation() // Prevent card click event
-        const productId = Number.parseInt(btn.closest(".product-card").dataset.id)
-        toggleFavorite(productId, btn)
-      })
-    })
+        e.stopPropagation();
+        const productId = Number.parseInt(btn.closest(".product-card").dataset.id);
+        toggleFavorite(productId, btn);
+      });
+    });
 
     addToCartBtns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        e.stopPropagation() // Prevent card click event
-        const productId = Number.parseInt(btn.closest(".product-card").dataset.id)
-        addToCart(productId)
-      })
-    })
+        e.stopPropagation();
+        const productId = Number.parseInt(btn.closest(".product-card").dataset.id);
+        addToCart(productId);
+      });
+    });
   }
 
   // Generate Stars
   function generateStars(rating) {
-    let stars = ""
-    const fullStars = Math.floor(rating)
-    const halfStar = rating % 1 >= 0.5
-    for (let i = 0; i < fullStars; i++) stars += '<i class="fas fa-star"></i>'
-    if (halfStar) stars += '<i class="fas fa-star-half-alt"></i>'
-    for (let i = 0; i < 5 - fullStars - (halfStar ? 1 : 0); i++) stars += '<i class="far fa-star"></i>'
-    return stars
+    let stars = "";
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5;
+    for (let i = 0; i < fullStars; i++) stars += '<i class="fas fa-star"></i>';
+    if (halfStar) stars += '<i class="fas fa-star-half-alt"></i>';
+    for (let i = 0; i < 5 - fullStars - (halfStar ? 1 : 0); i++) stars += '<i class="far fa-star"></i>';
+    return stars;
   }
 
   // Update Pagination
   function updatePagination() {
-    if (!totalPagesElem || !currentPageElem) return
-    const totalPages = Math.ceil(filteredProducts.length / productsPerPage)
-    totalPagesElem.textContent = totalPages || 1
-    currentPageElem.textContent = currentPage
-    if (prevPageBtn) prevPageBtn.disabled = currentPage === 1
-    if (nextPageBtn) nextPageBtn.disabled = currentPage === totalPages
+    if (!totalPagesElem || !currentPageElem) return;
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+    totalPagesElem.textContent = totalPages || 1;
+    currentPageElem.textContent = currentPage;
+    if (prevPageBtn) prevPageBtn.disabled = currentPage === 1;
+    if (nextPageBtn) nextPageBtn.disabled = currentPage === totalPages;
   }
 
   // Update favorites when window storage event occurs (to sync across tabs)
   window.addEventListener("storage", (e) => {
     if (e.key === "favorites") {
-      favorites = JSON.parse(e.newValue) || []
-      displayProducts() // Refresh the display to update heart icons
+      favorites = JSON.parse(e.newValue) || [];
+      displayProducts();
     }
-  })
+  });
 
   // Function to handle "Add to Favorites" button clicks
   document.addEventListener("click", (e) => {
     if (e.target.closest(".action-btn") && e.target.closest(".action-btn").querySelector(".fa-heart")) {
-      e.preventDefault()
-      const productCard = e.target.closest(".product-card")
+      e.preventDefault();
+      const productCard = e.target.closest(".product-card");
       if (productCard) {
-        const productId = Number.parseInt(productCard.dataset.id)
-        toggleFavorite(productId)
-        displayProducts() // Refresh the display to update heart icons
+        const productId = Number.parseInt(productCard.dataset.id);
+        toggleFavorite(productId);
+        displayProducts();
       }
     }
-  })
+  });
 
   // Toggle Favorite
   function toggleFavorite(productId, buttonElement) {
-    const product = productsData.find((p) => p.id === productId)
-    if (!product) return
+    const product = productsData.find((p) => p.id === productId);
+    if (!product) return;
 
-    const icon = buttonElement.querySelector("i")
+    const icon = buttonElement.querySelector("i");
 
     if (!favorites.includes(productId)) {
-      // Add to favorites
-      favorites.push(productId)
-      localStorage.setItem("favorites", JSON.stringify(favorites))
-      alert(`تمت إضافة ${sanitizeInput(product.name)} إلى المفضلة`)
-      icon.classList.remove("far")
-      icon.classList.add("fas")
+      favorites.push(productId);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      alert(`تمت إضافة ${sanitizeInput(product.name)} إلى المفضلة`);
+      icon.classList.remove("far");
+      icon.classList.add("fas");
     } else {
-      // Remove from favorites
       if (confirm(`${sanitizeInput(product.name)} موجود بالفعل في المفضلة. هل تريد إزالته؟`)) {
-        favorites = favorites.filter((id) => id !== productId)
-        localStorage.setItem("favorites", JSON.stringify(favorites))
-        alert(`تمت إزالة ${sanitizeInput(product.name)} من المفضلة`)
-        icon.classList.remove("fas")
-        icon.classList.add("far")
+        favorites = favorites.filter((id) => id !== productId);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        alert(`تمت إزالة ${sanitizeInput(product.name)} من المفضلة`);
+        icon.classList.remove("fas");
+        icon.classList.add("far");
       }
     }
   }
 
   // Add to Cart
   function addToCart(productId) {
-    const product = productsData.find((p) => p.id === productId)
-    if (!product) return
+    const product = productsData.find((p) => p.id === productId);
+    if (!product) return;
 
-    cart.push(product)
-    localStorage.setItem("cart", JSON.stringify(cart))
-    updateCartCount()
-    alert(`تمت إضافة ${sanitizeInput(product.name)} للسلة`)
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    alert(`تمت إضافة ${sanitizeInput(product.name)} للسلة`);
   }
-})
+});
